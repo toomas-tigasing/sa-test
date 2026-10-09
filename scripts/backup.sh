@@ -30,6 +30,7 @@ fi
 if tar -tzf "$ARCHIVE" > /dev/null 2>&1; then
     # Loeme ainult failid (kataloogide read lõpevad märgiga /)
     count=$(tar -tzf "$ARCHIVE" | grep -vc '/$')
+# -v "grep -vc" all tähendab, et ta leiab read, mis ei vasta mustrile
     echo "Varukoopia valmis: $ARCHIVE"
     echo "Failide arv: $count"
     log_message "backup: valmis $ARCHIVE ($count faili)"

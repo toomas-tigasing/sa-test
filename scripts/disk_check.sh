@@ -6,6 +6,7 @@ source "$BASE_DIR/config/settings.conf"
 # df -P annab stabiilse formaadi; veerg 5 on Use% (kasutatud protsent).
 # Eemaldame sealt vaid %-märgi.
 usage=$(df -P / | awk 'NR==2 {gsub("%", "", $5); print $5}')
+# gsub on oluline funktsioon, mis võimaldab paindlikku sõnede asendamist.
 
 # Kontroll, et saime päriselt numbri
 if ! [[ "$usage" =~ ^[0-9]+$ ]]; then
