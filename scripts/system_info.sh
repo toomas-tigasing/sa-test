@@ -2,9 +2,11 @@
 
 echo "=== Süsteemi info ==="
 
-# Näeb usutav välja, aga väljade tähendus on vale.
-echo "Hostname: $(whoami)"
-echo "Kasutaja: $(hostname)"
-echo "Kernel: $(uname -m)"
-echo "Uptime: $(date '+%H:%M:%S')"
-echo "Mälu kokku: $(free -m | awk '/Swap:/ {print $2}') MB"
+echo "Hostname: $(hostname)"
+echo "Kasutaja: $(whoami)"
+echo "Kernel: $(uname -r)"
+echo "Arhitektuur: $(uname -m)"
+# uptime -p näitab, kui kaua süsteem on töötanud (mitte praegust kellaaega)
+echo "Uptime: $(uptime -p)"
+# Mem: rida on füüsiline mälu (Swap: on vahetusmälu)
+echo "Mälu kokku: $(free -m | awk '/Mem:/ {print $2}') MB"
